@@ -1,116 +1,324 @@
-/* Light (default) */
+html { scroll-behavior: smooth; }
+
+/* ===== Color tokens (raw palette) ===== */
 :root {
-    color-scheme: light;
-    --bg: #ffffff;
-    --fg: #111111;
-    --muted: #595959;
-    --line: #eaeaea;
-    --accent: #0a84ff;
-  
-    /* NEW: theme-aware surfaces */
-    --header-bg: rgba(255,255,255,0.9);
-    --chip-bg: #f5f5f5;
-  
-    --radius: 12px;
-    --maxw: 980px;
-    --space: 16px;
+  /* Palette */
+  --black: #000000;
+  --navy:  #14213D;
+  --gold:  #FCA311;
+  --gray:  #E5E5E5;
+  --white: #FFFFFF;
+
+  /* Semantic (LIGHT theme defaults) */
+  --bg:        var(--white);
+  --text:      var(--black);
+  --muted:     #444;              /* derived for readability on light */
+  --surface:   #fafafa;           /* very light surface */
+  --border:    #e7e7e7;           /* light border */
+  --brand:     var(--gold);       /* primary accent */
+  --brand-ink: var(--navy);       /* brand text/ink color */
+  --link:      var(--navy);
+  --link-hov:  #0f1a30;           /* slightly darker navy */
+  --shadow:    0 2px 12px rgba(0,0,0,.06);
+}
+
+/* ===== Dark theme overrides ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:        #0c0c0c;         /* near-black */
+    --text:      #efefef;         /* light text */
+    --muted:     #b8b8b8;
+    --surface:   #121418;         /* navy-tinted dark surface */
+    --border:    #262a33;
+    --brand:     var(--gold);     /* same accent across themes */
+    --brand-ink: var(--black);    /* text on gold chips/buttons */
+    --link:      #a7c4ff;         /* accessible link on dark */
+    --link-hov:  #c6d6ff;
+    --shadow:    0 2px 18px rgba(0,0,0,.35);
   }
+}
+
+/* ===== Optional manual override with data-theme =====
+   Add data-theme="dark" or data-theme="light" on <html> to force.
+*/
+html[data-theme="light"] {
+  --bg:      var(--white);
+  --text:    var(--black);
+  --muted:   #444;
+  --surface: #fafafa;
+  --border:  #e7e7e7;
+  --brand:   var(--gold);
+  --brand-ink: var(--navy);
+  --link:    var(--navy);
+  --link-hov:#0f1a30;
+  --shadow:  0 2px 12px rgba(0,0,0,.06);
+}
+html[data-theme="dark"] {
+  --bg:      #0c0c0c;
+  --text:    #efefef;
+  --muted:   #b8b8b8;
+  --surface: #121418;
+  --border:  #262a33;
+  --brand:   var(--gold);
+  --brand-ink: var(--black);
+  --link:    #a7c4ff;
+  --link-hov:#c6d6ff;
+  --shadow:  0 2px 18px rgba(0,0,0,.35);
+}
+
+/* ===== Typography with Poppins + Inter ===== */
+body {
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+  margin: 0 0 var(--space-4);
+  font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+}
+
+h1 { font-size: var(--fs-5); font-weight: 700; }
+h2 { font-size: var(--fs-4); font-weight: 600; }
+h3 { font-size: var(--fs-3); font-weight: 600; }
+
+p {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: var(--fs-1);
+  line-height: var(--leading);
+  margin: 0 0 var(--space-4);
+}
+
+/* ===== Base elements use semantic vars (no component styling yet) ===== */
+html { color-scheme: light dark; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+a { color: var(--link); }
+a:hover { color: var(--link-hov); }
+
+/* ===== Spacing, radius, shadow, type scale ===== */
+:root{
+  /* spacing scale */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-10: 4rem;
+
+  /* layout */
+  --container: 1100px;
+  --radius: 14px;
+  --radius-sm: 8px;
+
+    /* typography */
+  --fs-0: 0.875rem;  /* small text */
+  --fs-1: 1rem;      /* body */
+  --fs-2: 1.125rem;  /* large body / small subhead */
+  --fs-3: 1.5rem;    /* h3 */
+  --fs-4: 2rem;      /* h2 */
+  --fs-5: clamp(2.5rem, 5vw + 1rem, 3.5rem); /* h1 responsive, bigger for Poppins */
+  --leading: 1.7;    /* slightly looser for Inter body text */
   
-  /* Dark */
-  :root[data-theme="dark"] {
-    color-scheme: dark;
-    --bg: #0f1115;
-    --fg: #e8e8ea;
-    --muted: #a9a9b3;
-    --line: #22252c;
-    --accent: #5aa9ff;
   
-    /* NEW: dark equivalents */
-    --header-bg: rgba(15,17,21,0.9); /* slightly translucent dark */
-    --chip-bg: #1f2430;
-  }
-  
-  /* ===== base ===== */
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--fg);
-    font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  }
-  
-  /* sensible defaults */
-  img { max-width: 100%; display: block; }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  
-  /* layout helpers */
-  .container { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--space); }
-  main { padding: calc(var(--space) * 2) 0; }
-  
-  /* ===== header / nav ===== */
-  .site-header {
-    position: sticky; top: 0; z-index: 10;
-    background: var(--header-bg);
-    border-bottom: 1px solid var(--line);
-    backdrop-filter: blur(8px);
-  }
-  .nav {
-    display: flex; align-items: center; justify-content: space-between;
-    height: 60px;
-  }
-  .brand {
-    font-weight: 700; letter-spacing: .4px; color: var(--fg);
-  }
-  .nav-links {
-    list-style: none; display: flex; gap: 14px; margin: 0; padding: 0;
-  }
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    padding: 6px 8px;
-    border-radius: 8px;
-  }
-  .nav-links a.is-active {
-    color: var(--fg);
-    background: var(--chip-bg);
-  }
-  .nav-links a:hover { background: var(--chip-bg); }
-  
-  /* ===== footer ===== */
-  .site-footer {
-    border-top: 1px solid var(--line);
-    padding: var(--space) 0;
-    color: var(--muted);
-    font-size: .95rem;
-  }
-  
-  /* ===== typography ===== */
-  h1 { margin: 0 0 8px; font-size: clamp(1.6rem, 3vw, 2.2rem); }
-  p { margin: 0 0 12px; color: var(--muted); }
-  
-  /* small screens: keep nav comfy */
-  @media (max-width: 520px) {
-    .nav { height: auto; padding: 10px 0; gap: 12px; flex-wrap: wrap; }
-  }
-  
-  /* ===== theme toggle button ===== */
-.theme-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px; height: 38px;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: transparent;
-    cursor: pointer;
-    margin-left: 8px;
-    font-size: 16px;
-  }
-  .theme-toggle:hover { background: rgba(0,0,0,0.04); }
-  :root[data-theme="dark"] .theme-toggle:hover { background: rgba(255,255,255,0.06); }
-  .theme-toggle .sun { display: none; }
-  :root:not([data-theme="dark"]) .theme-toggle .sun { display: inline; }
-  :root:not([data-theme="dark"]) .theme-toggle .moon { display: none; }
-  
+}
+
+/* container + section rhythm */
+.wrap{ max-width: var(--container); margin-inline: auto; padding-inline: var(--space-4); }
+section{ padding-block: var(--space-10); }
+section + section{ border-top: 1px solid var(--border); }
+
+/* headings */
+h1,h2,h3{ line-height: 1.2; margin: 0 0 var(--space-4); }
+h1{ font-size: var(--fs-5); }
+h2{ font-size: var(--fs-4); }
+h3{ font-size: var(--fs-3); }
+p{ font-size: var(--fs-1); line-height: var(--leading); margin: 0 0 var(--space-4); }
+.small{ font-size: var(--fs-0); }
+.muted{ color: var(--muted); }
+
+/* simple surface + border helpers (use brand palette) */
+.surface{ background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+.border{ border: 1px solid var(--border); border-radius: var(--radius-sm); }
+.brand{ color: var(--brand); }
+.bg-brand{ background: var(--brand); color: var(--brand-ink); }
+
+/* buttons (gold primary, navy outline) */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+  padding: .6rem 1rem; border-radius: var(--radius-sm);
+  border: 1px solid transparent; text-decoration:none; font-weight:600;
+}
+.btn-primary{ background: var(--brand); color: var(--brand-ink); }
+.btn-primary:hover{ filter: brightness(0.95); }
+.btn-outline{
+  background: transparent; color: var(--navy); border-color: var(--navy);
+}
+@media (prefers-color-scheme: dark){
+  .btn-outline{ color: var(--text); border-color: var(--border); }
+  .btn-outline:hover{ background: var(--surface); }
+}
+
+/* cards + grid (for projects later) */
+.grid{ display:grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); }
+.card{ padding: var(--space-4); }
+.card h3{ margin-bottom: var(--space-3); }
+
+/* accessibility niceties */
+:focus-visible{ outline: 2px solid var(--gold); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; }
+}
+/* ===== Header / Nav ===== */
+.site-header{
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in oklab, var(--bg) 92%, transparent);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner{ display:flex; align-items:center; justify-content:space-between; padding-block: var(--space-3); }
+
+.brand{
+  font-weight: 800; text-decoration: none;
+  color: var(--text);
+}
+.brand:hover{ color: var(--navy); }
+@media (prefers-color-scheme: dark){
+  .brand:hover{ color: var(--gold); }
+}
+
+.site-nav{ display:flex; gap: var(--space-3); }
+.nav-link{
+  text-decoration: none;
+  color: var(--text);
+  padding: .4rem .6rem; border-radius: var(--radius-sm);
+  transition: transform .12s ease, background-color .12s ease, color .12s ease;
+}
+.nav-link:hover{
+  background: var(--surface);
+}
+.nav-link.is-active{
+  background: transparent;
+  color: var(--brand);
+}
+
+/* Compact on small screens */
+@media (max-width: 640px){
+  .site-nav{ gap: var(--space-2); }
+  .nav-link{ padding: .35rem .55rem; }
+}
+
+/* ===== Section backgrounds (subtle alternation) ===== */
+section:nth-of-type(odd){ background: var(--bg); }
+section:nth-of-type(even){ background: var(--surface); }
+
+/* ===== Links (global polish) ===== */
+a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--link-hov); }
+.nav-link, .footer-link { text-decoration: none; } /* nav/footer links look like buttons/tabs */
+
+/* ===== Footer ===== */
+.site-footer{
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+.footer-inner{
+  display: flex; align-items: center; justify-content: space-between;
+  padding-block: var(--space-4);
+  gap: var(--space-3);
+}
+.footer-nav{ display:flex; gap: var(--space-3); }
+.footer-link{
+  color: var(--text);
+  padding: .35rem .55rem; border-radius: var(--radius-sm);
+}
+.footer-link:hover{ background: var(--bg); }
+@media (max-width: 640px){
+  .footer-inner{ flex-direction: column; align-items: flex-start; }
+}
+
+/* States */
+.btn[disabled], .btn.is-loading{
+  opacity: .6; cursor: not-allowed;
+}
+.btn.is-loading::after{
+  content: "…";
+  display:inline-block; transform: translateY(-1px);
+}
+
+.chips{ display:flex; flex-wrap:wrap; gap: var(--space-2); }
+.chip{
+  padding: .25rem .6rem; border-radius: 999px; font-size: var(--fs-0);
+  border: 1px solid var(--border); background: var(--bg); color: var(--text);
+}
+.chip.brand{ border-color: var(--gold); color: var(--navy); }
+@media (prefers-color-scheme: dark){
+  .chip.brand{ border-color: var(--gold); color: var(--text); }
+}
+
+.callout{
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* ===== Theme Toggle Switch ===== */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Track */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: var(--navy);                 /* dark track for contrast */
+  border: 1px solid var(--navy);
+  border-radius: 30px;
+  transition: background-color .4s, border-color .4s;
+}
+
+/* Knob: navy disc with a GOLD "inset" that forms a crescent */
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 3px;
+  background: var(--navy);                  /* base disc same as track */
+  /* gold crescent (half-moon) */
+  box-shadow: inset 10px -4px 0 0 var(--gold);
+  transition: transform .4s, box-shadow .4s;
+  box-shadow: inset 10px -4px 0 0 var(--gold);
+  /* small depth */
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,.25));
+}
+
+/* Checked (dark theme ON): slide right + fill to full gold circle */
+input:checked + .slider {
+  background: var(--navy);                  /* keep track consistent */
+  border-color: var(--navy);
+}
+
+input:checked + .slider:before {
+  transform: translateX(1.5em);             /* move to the right */
+  /* big inset creates a full gold circle */
+  box-shadow: inset 18px -4px 0 18px var(--gold);
+}

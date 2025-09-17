@@ -14,35 +14,78 @@
       } catch (e) {}
     })();
   </script>  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
 
     <header class="site-header">
-        <nav class="container nav" aria-label="Main">
-          <a class="brand" href="index.html">JP</a>
-          <ul class="nav-links">
-            <li><a href="index.html" data-nav="home">Home</a></li>
-            <li><a href="projects.html" data-nav="projects">Projects</a></li>
-            <li><a href="about.html" data-nav="about">About</a></li>
-          </ul>
-          <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Toggle dark mode">
-            <span class="sun" aria-hidden="true">☀️</span>
-            <span class="moon" aria-hidden="true">🌙</span>
-          </button>          
+      <div class="wrap header-inner">
+        <a class="brand" href="#home">JP</a>
+        <nav class="site-nav">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#contact" class="nav-link">Contact</a>
         </nav>
-      </header>
+        <label class="switch" id="theme-toggle">
+          <input type="checkbox" id="theme-checkbox" aria-label="Toggle color theme">
+          <span class="slider"></span>
+        </label>        
+      </div>
+    </header>
+    
 
   <main>
-    <div class="container">
-        <h1>Welcome</h1>
-        <p>Simple portfolio skeleton. Content coming soon.</p>
-    </div>
+    <section id="home">
+      <div class="wrap">
+          <h1>Hi, I'm Jorge.</h1>
+            <h3>an aspiring cloud architect with strong focus on reliability, x and simplicity.</h3>
+            <p class="muted">S3 • CloudFront • Route 53 • Serverless</p>
+            <a class="btn btn-primary" href="#projects">See Work</a>
+      </div>
+    </section>
+    <section id="projects">
+      <div class="wrap">
+          <h2>Projects</h2>
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum cumque ad ipsa esse nesciunt accusantium? Voluptate perferendis recusandae quam dolor! Vero quidem alias odio omnis quibusdam. Voluptas at accusantium veniam!.</p>
+          <h3>Project 1</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
+          <div class="chips">
+            <span class="chip">S3</span>
+            <span class="chip">CloudFront</span>
+            <span class="chip brand">AWS</span>
+          </div>          
+      </div>
+    </section>
+    <section id="about">
+      <div class="wrap">
+          <h2>About Me</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum nam voluptatem, cupiditate quam nisi, sed aliquid, explicabo sint voluptatibus aliquam ipsam ratione! Alias sed adipisci tempora eos eaque facilis porro.</p>
+      </div>
+    </section>
+    <section id="contact">
+      <div class="wrap">
+          <h2>Contact</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores mollitia quos libero, esse qui aut deserunt quod unde sapiente dolores delectus nulla necessitatibus aliquid impedit! Voluptates inventore reiciendis omnis sunt!</p>
+          <button class="btn btn-outline" type="button">Contact</button>
+      </div>
+    </section>
   </main>
 
- <footer class="site-footer">
-  <div class="container">© <span id="year"></span> Jorge Pereira</div>
-</footer>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <small>&copy; <span id="year"></span> Jorge Pereira</small>
+      <nav class="footer-nav">
+        <a href="#home" class="footer-link">Home</a>
+        <a href="#projects" class="footer-link">Projects</a>
+        <a href="#about" class="footer-link">About</a>
+        <a href="#contact" class="footer-link">Contact</a>
+      </nav>
+    </div>
+  </footer>
+  
   <script src="assets/js/script.js" defer></script>
 </body>
 </html>
