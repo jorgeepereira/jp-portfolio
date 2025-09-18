@@ -4,72 +4,148 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jorge Pereira — Portfolio</title>
-  <script>
-    (function() {
-      try {
-        const saved = localStorage.getItem('theme'); // "light" | "dark" | null
-        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const theme = saved || (systemPrefersDark ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
-      } catch (e) {}
-    })();
-  </script>  
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
 
-    <header class="site-header">
-      <div class="wrap header-inner">
-        <a class="brand" href="#home">JP</a>
-        <nav class="site-nav">
-          <a href="#home" class="nav-link">Home</a>
-          <a href="#projects" class="nav-link">Projects</a>
-          <a href="#about" class="nav-link">About</a>
-          <a href="#contact" class="nav-link">Contact</a>
-        </nav>
-        <label class="switch" id="theme-toggle">
-          <input type="checkbox" id="theme-checkbox" aria-label="Toggle color theme">
-          <span class="slider"></span>
-        </label>        
-      </div>
-    </header>
-    
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#home">JP</a>
+      <nav class="site-nav">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
 
   <main>
-    <section id="home">
-      <div class="wrap">
-          <h1>Hi, I'm Jorge.</h1>
-            <h3>an aspiring cloud architect with strong focus on reliability, x and simplicity.</h3>
-            <p class="muted">S3 • CloudFront • Route 53 • Serverless</p>
+    <!-- Hero -->
+    <section id="home" class="hero hero--split">
+      <div class="wrap split">
+        <div class="col art" aria-hidden="true"></div>
+        <div class="col text">
+          <p class="overline">Hello, I’m</p>
+          <h1>Jorge Pereira</h1>
+          <h3>An aspiring Cloud Architect focused on reliability, scalability, and simplicity.</h3>
+          <p class="muted">Explore my work below or connect with me directly.</p>
+          <div class="btn-group">
             <a class="btn btn-primary" href="#projects">See Work</a>
+            <a class="btn btn-secondary" href="#contact">Contact Me</a>
+          </div>
+        </div>
       </div>
     </section>
+    
+    <!-- Projects -->
     <section id="projects">
       <div class="wrap">
-          <h2>Projects</h2>
-          <a class="btn btn-primary" href="#projects">View Projects</a>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum cumque ad ipsa esse nesciunt accusantium? Voluptate perferendis recusandae quam dolor! Vero quidem alias odio omnis quibusdam. Voluptas at accusantium veniam!.</p>
-          <h3>Project 1</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-          <div class="chips">
-            <span class="chip">S3</span>
-            <span class="chip">CloudFront</span>
-            <span class="chip brand">AWS</span>
-          </div>          
+        <h2 class="section-title underline">Projects</h2>
+        <div class="projects-grid">
+          <!-- CARD 1 -->
+          <article class="project-card">
+            <a class="thumb">
+              <img src="assets/images/aws-static-website.webp" alt="Static Site Diagram" loading="lazy" />
+            </a>
+            <h3 class="title">Personal Portfolio Website</h3>
+            <p class="desc">A secure, scalable personal portfolio website deployed on AWS. Built with S3 + CloudFront + ACM for hosting and HTTPS, Route 53 for a registered custom domain, and CI/CD pipelines with GitHub. Provisioned and managed via Terraform for IaC.</p>
+            <div class="chips">
+              <span class="chip">S3</span>
+              <span class="chip">CloudFront</span>
+              <span class="chip">ACM</span>
+              <span class="chip">Route 53</span>
+              <span class="chip">GitHub Actions (CI/CD)</span>
+              <span class="chip">Terraform</span>
+              <span class="chip brand">AWS</span>
+            </div>
+            <a class="repo-btn" href="https://github.com/your-repo" target="_blank" aria-label="View on GitHub">
+              <span class="button_top">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.6 1.2 1.6 1.2 1 .1.7 2.3 3.5 1.6 0-.8.4-1.4.8-1.8-2.5-.3-5.2-1.2-5.2-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 .1.9-.3 1.8-.4 2.7-.4s1.8.1 2.7.4c2.1-.4 3-.1 3-.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1 2.9 0 4.3-2.7 5.1-5.2 5.4.4.4.8 1.1.8 2.1v3.1c0 .3.2.7.8.6C20.2 21.4 23.5 17.1 23.5 12c0-6.4-5.1-11.5-11.5-11.5z"/>
+                </svg>
+              </span>
+            </a>
+          </article>
+
+          <!-- CARD 2 -->
+          <article class="project-card">
+            <a class="thumb">
+              <img src="assets/images/placeholder.webp" alt="Placeholder" loading="lazy" />
+            </a>
+            <h3 class="title">Placeholder</h3>
+            <p class="desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure, temporibus. Alias libero, voluptatibus, doloribus deserunt fuga autem similique sit, rem doloremque suscipit iusto? Enim nam corrupti voluptatibus quos, sequi delectus.</p>
+            <div class="chips">
+              <span class="chip">Lambda</span>
+              <span class="chip">API Gateway</span>
+              <span class="chip brand">AWS</span>
+            </div>
+            <a class="repo-btn" href="https://github.com/your-repo" target="_blank" aria-label="View on GitHub">
+              <span class="button_top">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.6 1.2 1.6 1.2 1 .1.7 2.3 3.5 1.6 0-.8.4-1.4.8-1.8-2.5-.3-5.2-1.2-5.2-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 .1.9-.3 1.8-.4 2.7-.4s1.8.1 2.7.4c2.1-.4 3-.1 3-.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1 2.9 0 4.3-2.7 5.1-5.2 5.4.4.4.8 1.1.8 2.1v3.1c0 .3.2.7.8.6C20.2 21.4 23.5 17.1 23.5 12c0-6.4-5.1-11.5-11.5-11.5z"/>
+                </svg>
+              </span>
+            </a>
+          </article>
+          <article class="project-card">
+            <a class="thumb">
+              <img src="assets/images/placeholder.webp" alt="Placeholder" loading="lazy" />
+            </a>
+            <h3 class="title">Placeholder</h3>
+            <p class="desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure, temporibus. Alias libero, voluptatibus, doloribus deserunt fuga autem similique sit, rem doloremque suscipit iusto? Enim nam corrupti voluptatibus quos, sequi delectus.</p>
+            <div class="chips">
+              <span class="chip">Lambda</span>
+              <span class="chip">API Gateway</span>
+              <span class="chip brand">AWS</span>
+            </div>
+            <a class="repo-btn" href="https://github.com/your-repo" target="_blank" aria-label="View on GitHub">
+              <span class="button_top">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.6 1.2 1.6 1.2 1 .1.7 2.3 3.5 1.6 0-.8.4-1.4.8-1.8-2.5-.3-5.2-1.2-5.2-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 .1.9-.3 1.8-.4 2.7-.4s1.8.1 2.7.4c2.1-.4 3-.1 3-.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1 2.9 0 4.3-2.7 5.1-5.2 5.4.4.4.8 1.1.8 2.1v3.1c0 .3.2.7.8.6C20.2 21.4 23.5 17.1 23.5 12c0-6.4-5.1-11.5-11.5-11.5z"/>
+                </svg>
+              </span>
+            </a>
+          </article>
+          <article class="project-card">
+            <a class="thumb">
+              <img src="assets/images/placeholder.webp" alt="Placeholder" loading="lazy" />
+            </a>
+            <h3 class="title">Placeholder</h3>
+            <p class="desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure, temporibus. Alias libero, voluptatibus, doloribus deserunt fuga autem similique sit, rem doloremque suscipit iusto? Enim nam corrupti voluptatibus quos, sequi delectus.</p>
+            <div class="chips">
+              <span class="chip">Lambda</span>
+              <span class="chip">API Gateway</span>
+              <span class="chip brand">AWS</span>
+            </div>
+            <a class="repo-btn" href="https://github.com/your-repo" target="_blank" aria-label="View on GitHub">
+              <span class="button_top">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.6 1.2 1.6 1.2 1 .1.7 2.3 3.5 1.6 0-.8.4-1.4.8-1.8-2.5-.3-5.2-1.2-5.2-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 .1.9-.3 1.8-.4 2.7-.4s1.8.1 2.7.4c2.1-.4 3-.1 3-.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1 2.9 0 4.3-2.7 5.1-5.2 5.4.4.4.8 1.1.8 2.1v3.1c0 .3.2.7.8.6C20.2 21.4 23.5 17.1 23.5 12c0-6.4-5.1-11.5-11.5-11.5z"/>
+                </svg>
+              </span>
+            </a>
+          </article>
+        </div>
       </div>
     </section>
+    
+    <!-- About -->
     <section id="about">
       <div class="wrap">
-          <h2>About Me</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum nam voluptatem, cupiditate quam nisi, sed aliquid, explicabo sint voluptatibus aliquam ipsam ratione! Alias sed adipisci tempora eos eaque facilis porro.</p>
+        <h2>About Me</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum nam voluptatem, cupiditate quam nisi, sed aliquid, explicabo sint voluptatibus aliquam ipsam ratione!</p>
       </div>
     </section>
+
+    <!-- Contact -->
     <section id="contact">
       <div class="wrap">
-          <h2>Contact</h2>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores mollitia quos libero, esse qui aut deserunt quod unde sapiente dolores delectus nulla necessitatibus aliquid impedit! Voluptates inventore reiciendis omnis sunt!</p>
-          <button class="btn btn-outline" type="button">Contact</button>
+        <h2>Contact</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores mollitia quos libero, esse qui aut deserunt quod unde sapiente dolores delectus nulla necessitatibus aliquid impedit!</p>
+        <button class="btn btn-primary" type="button">Contact</button>
       </div>
     </section>
   </main>
