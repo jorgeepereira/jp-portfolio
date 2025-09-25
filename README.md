@@ -69,10 +69,13 @@ This project also gave me the opportunity to:
 - Final build automatically distributed via CloudFront edge locations.
 - Updates propagate worldwide with low latency and high availability.
 
+<img width="1032" height="647" alt="Screenshot 2025-09-25 at 5 28 46 PM" src="https://github.com/user-attachments/assets/33b06250-e29f-4155-a5d1-f8ee21fccc1d" />
+GitHub Actions automatically runs deploy.yml on main commits - calls to upload to the private S3 bucket and invalidate CloudFront.
+
 ## Architecture
 
 <img width="1296" height="661" alt="Screenshot 2025-09-25 at 8 52 12 AM" src="https://github.com/user-attachments/assets/e5a7dbec-03fb-48eb-96cc-046a0b106663" />
-                  High-level architecture diagram showing the flow from GitHub Actions → Terraform → AWS resources → end users.
+High-level architecture diagram showing the flow from GitHub Actions → Terraform → AWS resources → end users.
 
 ## What I Learned
 When I started this project, I had no prior experience with deploying a website or working with cloud infrastructure. Through building this portfolio, I learned:
@@ -91,5 +94,5 @@ When I started this project, I had no prior experience with deploying a website 
   
 Most importantly, I learned how all these tools and concepts fit together to take an idea from zero to production, which gave me confidence to keep building more complex projects.
 
-Check out the live website yourself <a href="https://jorge-pereira.com" target="_blank" rel="noopener noreferrer">here</a>.
+Any questions or concerns please don't hesitate to reach out! Just head to the Contact section <a href="https://jorge-pereira.com/#contact" target="_blank" rel="noopener noreferrer">here</a> :)
 
