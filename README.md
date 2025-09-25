@@ -1,4 +1,4 @@
-# JP Portfolio / Personal Portfolio Website
+# Personal Portfolio Website - JP Portfolio
 
 ## Overview
 This project is my personal portfolio website, built to showcase my work, skills, and cloud journey. More importantly, it was my first end-to-end project — when I started, I had no experience with frontend development, cloud services, or automation pipelines.
@@ -11,17 +11,20 @@ Through building this site, I learned how to:
 
 The result is not just a portfolio, but a learning milestone that reflects my growth from complete beginner to someone who can design, deploy, and maintain a production-ready website in the cloud.
 
+**Check out the live website here ->** <a href="https://jorge-pereira.com" target="_blank" rel="noopener noreferrer">JP Portfolio</a>
+
 <img width="1692" height="907" alt="Screenshot 2025-09-25 at 9 29 25 AM" src="https://github.com/user-attachments/assets/008cc2c9-926e-404c-87f5-486537cf0d05" />
 
 ## Why I Built It
 I primarily wanted to have a central place where recruiters and collaborators can explore my projects and skills. Allowing me to share more information than in a short Resume.
 
-This project would also give me the opportunity to:
+This project also gave me the opportunity to:
 - Practice cloud architecture using real tools: AWS, Terraform, and CI/CD pipelines.
 - Demonstrate that I can design, deploy, and maintain a production-grade web application.
 - Reinforce my belief that simplicity is the prerequisite for reliability — a principle I apply in both design and engineering.
 
-[Insert Projects Tab SC]
+<img width="1683" height="829" alt="Screenshot 2025-09-25 at 9 35 40 AM" src="https://github.com/user-attachments/assets/90aed936-fa2e-4503-bb23-95887a405ed2" />
+
 
 ## Tech Stack
 
