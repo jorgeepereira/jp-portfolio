@@ -145,14 +145,30 @@
         <h2 class="section-title underline">Contact</h2>
         
         <div class="contact-grid">
-          <!-- Placeholder for future form -->
-          <div class="contact-form-placeholder">
-            <p><span class="underline">Serverless Contact Form</span> - Coming Soon! <br>
-              Powered by AWS Lambda, API Gateway, and SES. <br>
-              
-              <br> In the meantime, feel free to reach out via email or social media :D
-            </p>
-          </div>
+          <form id="contact-form" novalidate>
+            <label>
+              Name
+              <input name="name" required autocomplete="name" />
+            </label>
+          
+            <label>
+              Email
+              <input name="email" type="email" required autocomplete="email" />
+            </label>
+          
+            <!-- Honeypot (hidden to humans, catches bots) -->
+            <input name="website" tabindex="-1" autocomplete="off"
+                   style="position:absolute;left:-9999px;opacity:0" aria-hidden="true" />
+          
+            <label>
+              Message
+              <textarea name="message" required rows="5"></textarea>
+            </label>
+          
+            <button id="contact-submit" type="submit">Send</button>
+            <p id="contact-status" aria-live="polite" role="status"></p>
+          </form>  
+        </div>
     
           <!-- Social links -->
           <div class="contact-socials">
