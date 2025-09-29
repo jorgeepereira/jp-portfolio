@@ -146,28 +146,29 @@
         
         <div class="contact-grid">
           <form id="contact-form" novalidate>
-            <label>
-              Name
-              <input name="name" required autocomplete="name" />
-            </label>
+            <label>Name <input name="name" required autocomplete="name" /></label>
+            <label>Email <input name="email" type="email" required autocomplete="email" /></label>
           
-            <label>
-              Email
-              <input name="email" type="email" required autocomplete="email" />
-            </label>
+            <!-- Honeypot: hidden from humans, not attractive to autofill -->
+            <input
+              name="website"
+              type="text"
+              class="hp"
+              autocomplete="off"
+              tabindex="-1"
+              aria-hidden="true"
+              inputmode="none"
+            />
           
-            <!-- Honeypot (hidden to humans, catches bots) -->
-            <input name="website" tabindex="-1" autocomplete="off"
-                   style="position:absolute;left:-9999px;opacity:0" aria-hidden="true" />
-          
-            <label>
-              Message
-              <textarea name="message" required rows="5"></textarea>
-            </label>
-          
+            <label>Message <textarea name="message" required rows="5"></textarea></label>
             <button id="contact-submit" type="submit">Send</button>
             <p id="contact-status" aria-live="polite" role="status"></p>
-          </form>  
+          </form>
+          
+          <style>
+            .hp{ position:absolute; left:-9999px; opacity:0; height:0; width:0; }
+          </style>
+          
         </div>
     
           <!-- Social links -->

@@ -50,53 +50,61 @@ document.addEventListener("DOMContentLoaded", () => {
     const statusEl = document.getElementById("contact-status");
     const submitBtn = document.getElementById("contact-submit");
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      // Honeypot: if filled, silently succeed (ignore bots)
-      if (form.website.value) {
-        statusEl.textContent = "Thanks!";
-        form.reset();
-        return;
-      }
-
-      const payload = {
-        name: form.name.value.trim(),
-        email: form.email.value.trim(),
-        message: form.message.value.trim()
-      };
-
-      // quick front-end validation
-      if (!payload.name || !payload.email || !payload.message) {
-        statusEl.textContent = "Please fill out all fields.";
-        return;
-      }
-
-      submitBtn.disabled = true;
-      statusEl.textContent = "Sending...";
-
-      try {
-        const res = await fetch(ENDPOINT, {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-
-        const data = await res.json().catch(() => ({}));
-
-        if (res.ok && data.ok) {
-          statusEl.textContent = "Thanks! Your message was sent.";
-          form.reset();
-        } else {
-          statusEl.textContent = data.message || "Failed to send. Please try again.";
-        }
-      } catch (err) {
-        statusEl.textContent = "Network error. Please try again.";
-      } finally {
-        submitBtn.disabled = false;
-      }
-    });
+    
   })();
+
+  const ENDPOINT = "https://wqmdsdxon4.execute-api.us-east-1.amazonaws.com/contact";
+
+  const form = document.getElementById("contact-form");
+  const statusEl = document.getElementById("contact-status");
+  const submitBtn = document.getElementById("contact-submit");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    console.log("contact submit fired"); // debug: verify JS is running
+
+    // Honeypot: if filled (bots or autofill), silently succeed
+    if (form.website.value) {
+      console.log("honeypot tripped, skipping send");
+      statusEl.textContent = "Thanks!";
+      form.reset();
+      return;
+    }
+
+    const payload = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      message: form.message.value.trim()
+    };
+
+    if (!payload.name || !payload.email || !payload.message) {
+      statusEl.textContent = "Please fill out all fields.";
+      return;
+    }
+
+    submitBtn.disabled = true;
+    statusEl.textContent = "Sending...";
+
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) {
+        statusEl.textContent = "Thanks! Your message was sent.";
+        form.reset();
+      } else {
+        statusEl.textContent = data.message || "Failed to send. Please try again.";
+      }
+    } catch (err) {
+      console.error(err);
+      statusEl.textContent = "Network error. Please try again.";
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
 });
 
   
