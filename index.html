@@ -27,11 +27,13 @@
     <!-- Hero -->
     <section id="home" class="hero hero--split">
       <div class="wrap split">
-        <div class="col art" aria-hidden="true"></div>
+        <div class="col art" aria-hidden="true">
+          <img src="assets/images/horizontal-river-cropped.JPG" alt="Gradation" class="hero-pic" />
+        </div>
         <div class="col text">
           <p class="overline">Hello, I’m</p>
           <h1>Jorge Pereira</h1>
-          <h3>A <span class="highlight">Computer Science Graduate</span> with a focus on cloud infrastructure, <br>scalability, and system reliability.</h3>
+          <h3>A <span class="highlight">Computer Science Graduate</span> with a focus on cloud infrastructure, scalability, and system reliability.</h3>
           <p class="muted">Explore my work below or connect with me directly.</p>
           <div class="btn-group">
             <a class="btn btn-primary" href="#projects">See Work</a>
@@ -92,6 +94,30 @@
               </span>
             </a>
           </article>
+
+          <!-- CARD 3 -->
+          <article class="project-card">
+            <a class="thumb">
+              <img src="assets/images/placeholder.webp" alt="Placeholder" loading="lazy" />
+            </a>
+            <h3 class="title">Staria - Workout Tracker</h3>
+            <p class="desc">A cross-platform mobile workout tracking app built with React Native and Expo. 
+            Uses Expo Router for navigation and Appwrite for authentication and data storage, with a modular, scalable architecture designed for future feature expansion and App Store deployment.</p>
+            <div class="chips">
+              <span class="chip brand">React Native</span>
+              <span class="chip">Expo</span>
+              <span class="chip">Expo Router</span>
+              <span class="chip">Appwrite</span>
+            </div>
+            <a class="repo-btn" href="https://github.com/jorgeepereira/jp-contact-form" target="_blank" aria-label="View on GitHub">
+              <span class="button_top">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.6 1.2 1.6 1.2 1 .1.7 2.3 3.5 1.6 0-.8.4-1.4.8-1.8-2.5-.3-5.2-1.2-5.2-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 .1.9-.3 1.8-.4 2.7-.4s1.8.1 2.7.4c2.1-.4 3-.1 3-.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1 2.9 0 4.3-2.7 5.1-5.2 5.4.4.4.8 1.1.8 2.1v3.1c0 .3.2.7.8.6C20.2 21.4 23.5 17.1 23.5 12c0-6.4-5.1-11.5-11.5-11.5z"/>
+                </svg>
+              </span>
+            </a>
+          </article>
+
         </div>
       </div>
     </section>
@@ -104,7 +130,7 @@
           <div class="about-intro">
             <div class="about-copy">
               <p>
-                My name is <span class="highlight">Jorge Pereira</span>, and I am a Computer Science student at 
+                My name is <span class="highlight">Jorge Pereira</span>, and I am a Computer Science graduate from 
                 <span class="highlight">Florida International University</span> with a passion for building systems that are 
                 reliable, scalable, and clear by design.
               </p>
@@ -132,7 +158,9 @@
               </p>
             </div>
 
-            <div class="about-photo art" aria-hidden="true"></div>
+            <div class="about-photo art" aria-hidden="true">
+              <img src="assets/images/about-me-pic-cropped.JPG" alt="About Jorge" class="about-pic" />
+            </div>
           </div>
 
       </div>
@@ -142,54 +170,77 @@
     <!-- Contact -->
     <section id="contact">
       <div class="wrap">
-        <h2 class="section-title underline">Contact</h2>
+        <h2 class="section-title underline">Get In Touch</h2>
+        <p class="contact-intro">Have a question or want to work together? Feel free to reach out.</p>
         
         <div class="contact-grid">
-          <form id="contact-form" novalidate>
-            <label>Name <input name="name" required autocomplete="name" /></label>
-            <label>Email <input name="email" type="email" required autocomplete="email" /></label>
-          
-            <!-- Honeypot: hidden from humans, not attractive to autofill -->
-            <input
-              name="website"
-              type="text"
-              class="hp"
-              autocomplete="off"
-              tabindex="-1"
-              aria-hidden="true"
-              inputmode="none"
-            />
-          
-            <label>Message <textarea name="message" required rows="5"></textarea></label>
-            <button id="contact-submit" type="submit">Send</button>
-            <p id="contact-status" aria-live="polite" role="status"></p>
-          </form>
+          <!-- Contact Form -->
+          <div class="contact-form-wrapper">
+            <form id="contact-form" novalidate>
+              <div class="form-row">
+                <label>
+                  <span class="label-text">Name</span>
+                  <input name="name" required autocomplete="name" placeholder="Your name" />
+                </label>
+                <label>
+                  <span class="label-text">Email</span>
+                  <input name="email" type="email" required autocomplete="email" placeholder="your@email.com" />
+                </label>
+              </div>
+            
+              <!-- Honeypot: hidden from humans, not attractive to autofill -->
+              <input
+                name="website"
+                type="text"
+                class="hp"
+                autocomplete="off"
+                tabindex="-1"
+                aria-hidden="true"
+                inputmode="none"
+              />
+            
+              <label>
+                <span class="label-text">Message</span>
+                <textarea name="message" required rows="6" placeholder="Your message..."></textarea>
+              </label>
+              
+              <button id="contact-submit" type="submit" class="btn btn-primary">Send Message</button>
+              <p id="contact-status" aria-live="polite" role="status"></p>
+            </form>
+          </div>
           
           <style>
             .hp{ position:absolute; left:-9999px; opacity:0; height:0; width:0; }
           </style>
  
-          <!-- Social links -->
-          <div class="contact-socials">
-            <h3 class="about-subtitle">Socials</h3>
-            <ul class="social-list">
-              <li><a href="https://github.com/jorgeepereira" target="_blank" aria-label="GitHub">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.6 1.2 1.6 1.2 1 .1.7 2.3 3.5 1.6 0-.8.4-1.4.8-1.8-2.5-.3-5.2-1.2-5.2-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 .1.9-.3 1.8-.4 2.7-.4s1.8.1 2.7.4c2.1-.4 3-.1 3-.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1 2.9 0 4.3-2.7 5.1-5.2 5.4.4.4.8 1.1.8 2.1v3.1c0 .3.2.7.8.6C20.2 21.4 23.5 17.1 23.5 12c0-6.4-5.1-11.5-11.5-11.5z"/></svg>
-                GitHub</a></li>
-              <li><a href="https://linkedin.com/in/jorge-pereira-rms" target="_blank" aria-label="LinkedIn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 0h-14C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM7 20H4V9h3v11zm-1.5-12.3c-.97 0-1.75-.8-1.75-1.7s.78-1.7 1.75-1.7S7.25 5.1 7.25 6s-.78 1.7-1.75 1.7zM20 20h-3v-5.6c0-1.3-.02-3-1.8-3s-2.1 1.4-2.1 2.9V20h-3V9h2.9v1.5h.04c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.7V20z"/>
-                </svg>
-                LinkedIn</a></li>
-              <li><a href="mailto:jorgepereirarms@gmail.com" aria-label="Email">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-                </svg>jorgepereirarms@gmail.com</a></li>
-              <li><a href="mailto:jpere1079@fiu.edu" aria-label="Email">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-                </svg>jpere1079@fiu.edu</a></li>
-            </ul>
+          <!-- Contact Info & Socials -->
+          <div class="contact-sidebar">
+            <div class="contact-info-card">
+              <h3 class="sidebar-title">Let's Connect</h3>
+              <p class="sidebar-text">I'm always open to discussing new projects, opportunities, or collaborations.</p>
+              
+              <div class="contact-links">
+                <a href="mailto:jorgepereirarms@gmail.com" class="contact-link">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                  <span>jorgepereirarms@gmail.com</span>
+                </a>
+              </div>
+              
+              <div class="social-links">
+                <div class="social-icons">
+                  <a href="https://github.com/jorgeepereira" target="_blank" aria-label="GitHub" class="social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.6 1.2 1.6 1.2 1 .1.7 2.3 3.5 1.6 0-.8.4-1.4.8-1.8-2.5-.3-5.2-1.2-5.2-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 .1.9-.3 1.8-.4 2.7-.4s1.8.1 2.7.4c2.1-.4 3-.1 3-.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1 2.9 0 4.3-2.7 5.1-5.2 5.4.4.4.8 1.1.8 2.1v3.1c0 .3.2.7.8.6C20.2 21.4 23.5 17.1 23.5 12c0-6.4-5.1-11.5-11.5-11.5z"/></svg>
+                  </a>
+                  <a href="https://linkedin.com/in/jorge-pereira-rms" target="_blank" aria-label="LinkedIn" class="social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M19 0h-14C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM7 20H4V9h3v11zm-1.5-12.3c-.97 0-1.75-.8-1.75-1.7s.78-1.7 1.75-1.7S7.25 5.1 7.25 6s-.78 1.7-1.75 1.7zM20 20h-3v-5.6c0-1.3-.02-3-1.8-3s-2.1 1.4-2.1 2.9V20h-3V9h2.9v1.5h.04c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.7V20z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
